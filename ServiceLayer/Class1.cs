@@ -1,4 +1,4 @@
-﻿namespace Entities;
+﻿namespace ServiceLayer;
 
 public class Class1
 {
