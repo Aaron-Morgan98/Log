@@ -30,9 +30,9 @@ namespace DataLayer
                 {
                     GameId = 1,
                     Title = "Dark Souls 1",
-                    DateReleased = new DateOnly(2011, 9, 22),
-                    DateStarted = new DateOnly(2024, 2, 1),
-                    DateCompleted = new DateOnly(2024, 3, 15),
+                    DateReleased = "22/09/2011",
+                    DateStarted = "01/02/2024",
+                    DateCompleted = "15/03/2024",
                     Review = "Amazing difficulty. Bit confusing at times.",
                     Rating = 8
                 });

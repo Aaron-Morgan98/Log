@@ -7,6 +7,7 @@ namespace DTOs
 
     public record class CreateGameDto
         (
+            int GameId,
             [Required][StringLength(50)] string Title,
             [Required] string DateReleased,
             [Required] string DateStarted,
