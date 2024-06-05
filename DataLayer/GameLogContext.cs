@@ -12,7 +12,7 @@ namespace DataLayer
             DbPath = Path.Combine(currentDirectory, "gameLog.db");
         }
 
-        public DbSet<GameEntity> GameEntities { get; set; }
+        public DbSet<GameEntity> GameLogs { get; set; }
         public string DbPath { get; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
