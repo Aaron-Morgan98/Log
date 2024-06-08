@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using DataLayer;
 using Entities;
-using RepositoryLayer.Interfaces;
+using DataLayer.Interfaces;
 
 
-namespace RepositoryLayer.Repositories
+namespace DataLayer.Repositories
 {
 	public class GameLogRepository : IGameLogRepository
 	{
@@ -59,7 +59,7 @@ namespace RepositoryLayer.Repositories
 
 
 		//DELETE
-		public async Task DeleteGameById(int id)
+		public async Task DeleteGameByIdAsync(int id)
 		{
 			var result = await _context.GameLogs.FindAsync(id);
 			if(result != null)

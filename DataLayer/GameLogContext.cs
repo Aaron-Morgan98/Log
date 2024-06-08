@@ -2,6 +2,7 @@
 using Entities;
 using System.IO;
 
+
 namespace DataLayer
 {
     public class GameLogContext : DbContext
@@ -19,6 +20,8 @@ namespace DataLayer
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
+
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

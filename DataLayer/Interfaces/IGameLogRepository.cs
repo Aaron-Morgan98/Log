@@ -1,7 +1,7 @@
 ﻿using System;
 using Entities;
 
-namespace RepositoryLayer.Interfaces
+namespace DataLayer.Interfaces
 {
 	public interface IGameLogRepository
 	{
@@ -9,7 +9,7 @@ namespace RepositoryLayer.Interfaces
 		Task<GameEntity?> GetGameByIdAsync(int id);
 		Task AddGameAsync(GameEntity game);
 		Task UpdateGameAsync(GameEntity game);
-		Task DeleteGameById(int id);
+		Task DeleteGameByIdAsync(int id);
 
     }
 }

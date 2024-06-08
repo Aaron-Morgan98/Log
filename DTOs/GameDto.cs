@@ -5,7 +5,7 @@ namespace DTOs
 {
 
 
-    public record class GameInformationDto
+    public record class GameDto
         (
             int GameId,
             [Required][StringLength(50)] string Title,
