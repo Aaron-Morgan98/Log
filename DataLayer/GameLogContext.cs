@@ -7,7 +7,7 @@ namespace DataLayer
 {
     public class GameLogContext : DbContext
     {
-        public GameLogContext()
+        public GameLogContext(DbContextOptions<GameLogContext> options) : base(options)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
             DbPath = Path.Combine(currentDirectory, "gameLog.db");
