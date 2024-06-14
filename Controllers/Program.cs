@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //connect DB
 var connectionString = builder.Configuration.GetConnectionString("GameLog");
-builder.Services.AddSqlite<GameLogContext>(connectionString);
+builder.Services.AddDbContext<GameLogContext>(options => options.UseSqlite(connectionString));
 
 builder.Services.AddScoped<IGameLogRepository, GameLogRepository>();
 builder.Services.AddScoped<IGameLogService, GameLogService>();

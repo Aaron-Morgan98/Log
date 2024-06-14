@@ -6,9 +6,8 @@ using ServiceLayer.Interfaces;
 
 namespace GameControllers
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class GameLogController : ControllerBase
+	
+	public class GameLogController : Controller
 	{
 		private readonly IGameLogService _gameLogService;
 
@@ -17,11 +16,14 @@ namespace GameControllers
 			_gameLogService = gameLogService;
 		}
 
+		[Route("/GameLog/GetAllGames")]
 		[HttpGet]
 		public async Task<ActionResult<List<GameDto>>> GetAllGames()
 		{
 			var games = await _gameLogService.GetAllGamesAsync();
 			return Ok(games);
+
+
 		}
 	}
 }
