@@ -5,7 +5,7 @@ using DataLayer.Repositories;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Services;
 using AutoMapper;
-using DTOs.Mappers;
+//using DTOs.Mappers;
 
 
 
@@ -18,7 +18,7 @@ builder.Services.AddDbContext<GameLogContext>(options => options.UseSqlite(conne
 builder.Services.AddScoped<IGameLogRepository, GameLogRepository>();
 builder.Services.AddScoped<IGameLogService, GameLogService>();
 
-builder.Services.AddAutoMapper(typeof(GameMapper)); //config for mapping
+//builder.Services.AddAutoMapper(typeof(GameMapper)); //config for mapping
 
 builder.Services.AddControllersWithViews(); // add MVC services
 

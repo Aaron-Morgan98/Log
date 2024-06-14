@@ -1,9 +1,8 @@
 ﻿using System;
 using ServiceLayer.Interfaces;
 using DataLayer.Interfaces;
-using DTOs;
 using Entities;
-using AutoMapper;
+//using AutoMapper;
 
 namespace ServiceLayer.Services
 {
@@ -11,49 +10,53 @@ namespace ServiceLayer.Services
 	{
 
 		private readonly IGameLogRepository _gameLogRepository;
-		private readonly IMapper _mapper;
+		//private readonly IMapper _mapper;
 
-		public GameLogService(IGameLogRepository gameLogRepository, IMapper mapper)
+		public GameLogService(IGameLogRepository gameLogRepository)
 		{
 			_gameLogRepository = gameLogRepository;
-			_mapper = mapper;
+			//_mapper = mapper;
 		}
 
-		public async Task<List<GameDto>> GetAllGamesAsync()
+		public async Task<List<GameEntity>> GetAllGamesAsync()
 		{
 			var games = await _gameLogRepository.GetAllGamesAsync();
-			return _mapper.Map<List<GameDto>>(games);
+			return games;
+			//return _mapper.Map<List<GameEntity>>(games);
 		}
 
 
-		public async Task<GameDto> GetGameByIdAsync(int id)
+		public async Task<GameEntity> GetGameByIdAsync(int id)
 		{
 			var game = await _gameLogRepository.GetGameByIdAsync(id);
-			return _mapper.Map<GameDto>(game);
+			return game;
+			//return _mapper.Map<GameDto>(game);
 		}
 
-		public async Task<GameDto> AddGameAsync(GameDto gameDto)
-		{
-			var gameEntity = _mapper.Map<GameEntity>(gameDto);
-			await _gameLogRepository.AddGameAsync(gameEntity);
+		//public async Task<GameEntity> AddGameAsync(GameEntity gameEntity)
+		//{
+		//	//var gameEntity = _mapper.Map<GameEntity>(gameDto);
+		//	var result = await _gameLogRepository.AddGameAsync(gameEntity);
 
-			return _mapper.Map<GameDto>(gameEntity);
+			 
 
-		}
+		//	//return _mapper.Map<GameDto>(gameEntity);
 
-		public async Task<GameDto> UpdateGameAsync(GameDto gameDto)
-		{
-			var gameEntity = _mapper.Map<GameEntity>(gameDto);
-			await _gameLogRepository.UpdateGameAsync(gameEntity);
+		//}
 
-			return _mapper.Map<GameDto>(gameEntity);
-		}
+		//public async Task<GameDto> UpdateGameAsync(GameDto gameDto)
+		//{
+		//	var gameEntity = _mapper.Map<GameEntity>(gameDto);
+		//	await _gameLogRepository.UpdateGameAsync(gameEntity);
 
-		public async Task DeleteGameByIdAsync(int id)
-		{
-            await _gameLogRepository.DeleteGameByIdAsync(id);
+		//	return _mapper.Map<GameDto>(gameEntity);
+		//}
 
-        }
+		//public async Task DeleteGameByIdAsync(int id)
+		//{
+  //          await _gameLogRepository.DeleteGameByIdAsync(id);
+
+  //      }
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using DTOs;
+using Entities;
 using ServiceLayer.Interfaces;
 
 
@@ -18,7 +18,7 @@ namespace GameControllers
 
 		[Route("/GameLog/GetAllGames")]
 		[HttpGet]
-		public async Task<ActionResult<List<GameDto>>> GetAllGames()
+		public async Task<ActionResult<List<GameEntity>>> GetAllGames()
 		{
 			var games = await _gameLogService.GetAllGamesAsync();
 			return Ok(games);

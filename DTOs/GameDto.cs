@@ -1,20 +1,20 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿//using System;
+//using System.ComponentModel.DataAnnotations;
 
-namespace DTOs
-{
+//namespace DTOs
+//{
 
 
-    public record class GameDto
-        (
-            int GameId,
-            [Required][StringLength(50)] string Title,
-            [Required] string DateReleased,
-            [Required] string DateStarted,
-            string? DateCompleted,
-            string? Review,
-            [Range(0, 10)] int Rating
+//    public record class GameDto
+//        (
+//            int GameId,
+//            [Required][StringLength(50)] string Title,
+//            [Required] string DateReleased,
+//            [Required] string DateStarted,
+//            string? DateCompleted,
+//            string? Review,
+//            [Range(0, 10)] int Rating
 
-        );
+//        );
 
-}
+//}
