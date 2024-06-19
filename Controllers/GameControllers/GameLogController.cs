@@ -29,8 +29,9 @@ namespace GameControllers
 		}
 
 
-		//[Route($"GameLog/GetById/{id}")]
-		[HttpGet]
+        //[Route($"GameLog/GetById/{id}")]
+        [EnableCors("AllowOrigin")]
+        [HttpGet]
 		public async Task<IActionResult> GetGameById([FromRoute] int id)
 		{
 			var game = await _gameLogService.GetGameByIdAsync(id);
@@ -47,7 +48,8 @@ namespace GameControllers
 		}
 
 
-		[HttpPost]
+        [EnableCors("AllowOrigin")]
+        [HttpPost]
 		public async Task<IActionResult> AddGame([FromBody] GameEntity game)
 		{
 			await _gameLogService.AddGameAsync(game);
@@ -55,7 +57,8 @@ namespace GameControllers
 		}
 
 
-		[HttpPut]
+        [EnableCors("AllowOrigin")]
+        [HttpPut]
 		public async Task<IActionResult> UpdateGame([FromBody] GameEntity game)
 		{
 			await _gameLogService.UpdateGameAsync(game);
@@ -63,7 +66,8 @@ namespace GameControllers
 		}
 
 
-		[HttpDelete]
+        [EnableCors("AllowOrigin")]
+        [HttpDelete]
 		public async Task<IActionResult> DeleteGame([FromRoute] int id)
 		{
 			await _gameLogService.DeleteGameByIdAsync(id);
