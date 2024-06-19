@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Entities;
 using ServiceLayer.Interfaces;
-
+using Microsoft.AspNetCore.Cors;
 
 namespace GameControllers
 {
@@ -17,8 +17,9 @@ namespace GameControllers
 		}
 
 
-		//[Route("/GameLog/GetAllGames")]
-		[HttpGet]
+        //[Route("/GameLog/GetAllGames")]
+        [EnableCors("AllowOrigin")]
+        [HttpGet]
 		public async Task<ActionResult<List<GameEntity>>> GetAllGames()
 		{
 			var games = await _gameLogService.GetAllGamesAsync();

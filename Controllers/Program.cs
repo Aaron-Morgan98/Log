@@ -10,6 +10,15 @@ using ServiceLayer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS services
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.WithOrigins("http://localhost:5173")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 //connect DB
 var connectionString = builder.Configuration.GetConnectionString("GameLog");
 builder.Services.AddDbContext<GameLogContext>(options => options.UseSqlite(connectionString));
@@ -23,8 +32,12 @@ builder.Services.AddControllersWithViews(); // add MVC services
 
 var app = builder.Build();
 
+
+
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseCors("AllowOrigin");
 
 app.UseAuthentication();
 app.UseAuthorization();

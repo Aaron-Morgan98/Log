@@ -40,7 +40,8 @@ namespace DataLayer
                     DateStarted = "01/02/2024",
                     DateCompleted = "15/03/2024",
                     Review = "Amazing difficulty and level design. Bit confusing at times.",
-                    Rating = 8
+                    Rating = 8,
+                    Difficulty = 9
                 });
             modelBuilder.Entity<GameEntity>()
                 .HasData(new GameEntity
@@ -49,7 +50,8 @@ namespace DataLayer
                     Title = "Kingdom Come: Deliverance",
                     DateReleased = "13/02/2018",                                    
                     Review = "Great open world and very immersive. Steep learning curve.",
-                    Rating = 9
+                    Rating = 9,
+                    Difficulty = 7
                 });
 
 
