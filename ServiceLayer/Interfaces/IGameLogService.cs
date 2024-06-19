@@ -10,10 +10,10 @@ namespace ServiceLayer.Interfaces
 	{
 		Task<List<GameEntity>> GetAllGamesAsync();
 		Task<GameEntity> GetGameByIdAsync(int id);
-		//Task<GameDto> AddGameAsync(GameDto gameDto);
-		//Task<GameDto> UpdateGameAsync(GameDto gameDto);
-		//Task DeleteGameByIdAsync(int id);
-		
+		Task AddGameAsync(GameEntity gameEntity);
+		Task UpdateGameAsync(GameEntity game);
+		Task DeleteGameByIdAsync(int id);
+
 	}
 }
 

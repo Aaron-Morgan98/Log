@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="src\Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Pages\" />
+  </ItemGroup>
 </Project>
