@@ -35,7 +35,12 @@ namespace DataLayer.Repositories
 		//CREATE
 		public async Task AddGameAsync(GameEntity game)
 		{
-			await _context.GameLogs.AddAsync(game);
+            if (game == null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+
+            await _context.GameLogs.AddAsync(game);
 			await _context.SaveChangesAsync();
 		}
 

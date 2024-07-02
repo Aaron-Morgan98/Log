@@ -35,7 +35,12 @@ namespace ServiceLayer.Services
 
 		public async Task AddGameAsync(GameEntity game)
 		{
-			await _gameLogRepository.AddGameAsync(game);
+            if (game == null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+
+            await _gameLogRepository.AddGameAsync(game);
 			
 		}
 

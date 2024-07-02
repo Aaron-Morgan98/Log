@@ -3,6 +3,7 @@ using System;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(GameLogContext))]
-    partial class GameLogContextModelSnapshot : ModelSnapshot
+    [Migration("20240622140408_RatingAndDifficultyNowNullable")]
+    partial class RatingAndDifficultyNowNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.20");
@@ -42,9 +45,6 @@ namespace DataLayer.Migrations
                     b.Property<string>("Review")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Story")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -57,11 +57,12 @@ namespace DataLayer.Migrations
                         new
                         {
                             GameId = 1,
+                            DateCompleted = "15/03/2024",
                             DateReleased = "22/09/2011",
-                            Difficulty = 8,
+                            DateStarted = "01/02/2024",
+                            Difficulty = 9,
                             Rating = 8,
-                            Review = "Amazing world/level design, the majority of the world is interconnected. A lot of the side quests are very hidden/confusing, you need a guide majority of the time. Combat is amazing, movement is holding it back however. Both DLCs add difficulity and the fight with Artorias is so far my favourite in the DS series.",
-                            Story = 9,
+                            Review = "Amazing difficulty and level design. Bit confusing at times.",
                             Title = "Dark Souls 1"
                         },
                         new
@@ -69,20 +70,9 @@ namespace DataLayer.Migrations
                             GameId = 2,
                             DateReleased = "13/02/2018",
                             Difficulty = 7,
-                            Rating = 6,
-                            Review = "A bit of a let down after DS 1. The level design is still great, but the combat is so slow (healing), the game was a bit of a chore to get through at the latter stages. ADP is a also an awful addition. DLCs lackluster, seemed like they were just thrown in.",
-                            Story = 6,
-                            Title = "Dark Souls 2"
-                        },
-                        new
-                        {
-                            GameId = 3,
-                            DateReleased = "13/02/2018",
-                            Difficulty = 8,
                             Rating = 9,
-                            Review = "A great comback after DS2, level design is top tier, every area made me want to explore. The bosses were a major improvement over the last two games. The DLC here is also on par if not better than DS1 DLC. Story and lore is also interesting",
-                            Story = 9,
-                            Title = "Dark Souls 3"
+                            Review = "Great open world and very immersive. Steep learning curve.",
+                            Title = "Kingdom Come: Deliverance"
                         });
                 });
 #pragma warning restore 612, 618
